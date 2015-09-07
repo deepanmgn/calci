@@ -2,7 +2,6 @@ $key_height: 16vmin;
 body {
 	height: 100vh;
 	font-family: 'Roboto', sans-serif;
-
 }
 
 #calculator {
@@ -12,6 +11,12 @@ body {
 	transform: translateY(-50%);
 	margin: 0 auto;
 
+	#keys, #operators {
+	::selection {
+		background-color: transparent;
+		color: inherit;
+	}
+}
 	#result {
 		text-align: right;
 		padding-right: 2vmin;
@@ -66,4 +71,5 @@ body {
 			margin: 0 -15px;
 		}
 	}
+
 }
