@@ -19,7 +19,10 @@ var Calci = {
 		$(document).bind('keyup', digit, function() {
 			Calci.handleInput(digit);
 		});
-	});		
+	});
+	$(document).bind('keyup', 'backspace', function() {
+		Calci.handleDelete();	
+	});	
 },
 	handleInput: function(input) {
 		$('#preview').html($('#preview').html() + input);	
