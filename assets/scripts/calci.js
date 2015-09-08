@@ -1,14 +1,15 @@
-var Calci = {
-	init: function() {
-		$('#calculator .input').click(function(){
-			if(this.dataset.keyType == "digit") {
-				Calci.handleInput(this.dataset.digit);
+(function() {
+	var Calci = {
+		init: function() {
+			$('#calculator .input').click(function(){
+				if(this.dataset.keyType == "digit") {
+					Calci.handleInput(this.dataset.digit);
 			} else if (this.dataset.keyType == "operator") {
-				Calci.handleOperator(this.dataset.operator);
+					Calci.handleOperator(this.dataset.operator);
 			} else if (this.dataset.keyType == "delete") {
-				Calci.handleDelete();
+					Calci.handleDelete();
 			} else if (this.dataset.keyType == "equals") {
-				Calci.evaluateResult();
+					Calci.evaluateResult();
 			}
 		});	
 		$('#calculator #delete').dblclick(function() {
@@ -111,3 +112,4 @@ var Calci = {
 $(document).ready(function() {
 	Calci.init();
 });
+})();
