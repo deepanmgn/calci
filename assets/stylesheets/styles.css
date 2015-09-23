@@ -8,13 +8,14 @@ body {
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto; }
-  #calculator #keys ::selection, #calculator #operators ::selection {
+  #calculator ::selection {
     background-color: transparent;
     color: inherit; }
   #calculator #result {
     text-align: right;
     padding-right: 2vmin;
-    background-color: #F3F3F3;
+    background-color: black;
+    color: white;
     font-size: 14vmin;
     font-weight: 100;
     height: 20.8vmin;
@@ -22,7 +23,8 @@ body {
   #calculator #preview {
     text-align: right;
     padding-right: 2vmin;
-    background-color: #F2F2F2;
+    background-color: black;
+    color: white;
     font-size: 6vmin;
     font-weight: 100;
     height: 11.2vmin;
@@ -30,8 +32,8 @@ body {
   #calculator #keys {
     text-align: center; }
     #calculator #keys .key {
-      background-color: #434343;
-      color: #F3F3F3;
+      background-color: white;
+      color: black;
       font-size: 8vmin;
       font-weight: 100;
       height: 16vmin;
@@ -44,7 +46,7 @@ body {
   #calculator #operators {
     text-align: center; }
     #calculator #operators .operator {
-      background-color: #636363;
+      background-color: orange;
       color: #F3F3F3;
       font-size: 6vmin;
       font-weight: 300;

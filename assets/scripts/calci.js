@@ -16,6 +16,11 @@
 			Calci.clearPreview();
 			Calci.clearResult();
 	});
+		$('#calculator #clear').click(function() {
+			Calci.clearPreview();
+			Calci.clearResult();
+		});
+
 
 	['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].forEach(function(digit) {
 		$(document).bind('keyup', digit, function() {
@@ -23,7 +28,7 @@
 		});
 	});
 
-	['/', '*', '+', '-'].forEach(function(digit) {
+	['/', '*', '+', '-', 'sqrt', '^', '%', '!'].forEach(function(digit) {
 		$(document).bind('keyup', digit, function() {
 			Calci.handleOperator(digit);
 		});
@@ -55,10 +60,19 @@
 		$('#preview').html($('#preview').html() + input);	
 	},
 	handleOperator: function(operator) {
+		if (operator == '!') {
+				Calci.evaluateFactorial();
+				return;
+			}
+			if (operator == 'sqrt') {
+				Calci.evaluateSqrt();
+				return;
+			}
 		if ($('#preview').html().length == 0) {
 			if (operator == '-') {
 				Calci.handleInput('-');
 			}
+			
 		}
 			else {
 				if (Calci.checkLastCharIsOperator()) {
@@ -72,6 +86,24 @@
 		if ($('#preview').html().length == 0) {
 			Calci.clearResult();
 		}
+	},
+	evaluateSqrt: function() {
+		var result = eval($('#preview').html());
+		result = Math.sqrt(result);
+		$('#preview').html(result);
+		$('#result').html(result);
+	},
+	evaluateFactorial: function() {
+		var result = eval($('#preview').html());
+		if (result <= 0) {
+				result = 1;
+				$('#result').html(result);
+		} else {
+		for (var i = result; --i;) {
+			result *= i;
+			$('#result').html(result);
+		}
+}
 	},
 	evaluateResult: function() {
 		if (Calci.checkLastCharIsOperator()) {
